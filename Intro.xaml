@@ -1,0 +1,13 @@
+﻿<Window x:Class="MPlay.IntroScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MPlay"
+        mc:Ignorable="d"
+        Title="IntroScreen" Height="300" Width="400" WindowStartupLocation="CenterScreen" WindowState="Minimized" WindowStyle="None" Background="#BFFDECFF">
+    <Grid>
+        <TextBlock x:Name="XUI" HorizontalAlignment="Center" TextWrapping="Wrap" Text="LAVENDER MPLAY" VerticalAlignment="Center" FontFamily="Castellar" FontSize="18" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
