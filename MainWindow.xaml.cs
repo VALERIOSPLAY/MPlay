@@ -8,6 +8,7 @@ namespace MPlay
 {
     public partial class MainWindow : Window
     {
+        // Инициализируем NAudio
         bool IsPause = false;
         public WaveOutEvent outputDevice;
         private AudioFileReader audioFile;
@@ -15,6 +16,7 @@ namespace MPlay
         {
 
         }
+        // Тут открываем файлы
         string OFD()
         {
             OpenFileDialog ofds = new OpenFileDialog();
@@ -22,7 +24,7 @@ namespace MPlay
             return ofds.FileName;
 
         }
-
+        // Что происходит после открытия файла 
         private void OpenFile_Click(object sender, RoutedEventArgs e)
         {
             string path = OFD();
@@ -42,13 +44,13 @@ namespace MPlay
                 outputDevice.Init(audioFile);
             }
             outputDevice.Play();
-            double sl = (Math.Round(audioFile.TotalTime.TotalSeconds));
+            double sl = (Math.Round(audioFile.TotalTime.TotalSeconds)); // Длительность файла для полоски
             TimeSpan tt = TimeSpan.FromSeconds(sl);
-            End.Text = tt.ToString();
+            End.Text = tt.ToString(); // Длительность файла для текста
             SliderBar.Maximum = sl;
             SliderBar.Value = 0;
-            CreateTimer();
-            var tfile = TagLib.File.Create(path);
+            CreateTimer(); // обновление таймера
+            var tfile = TagLib.File.Create(path); // taglib для имени и исполнителя
             if (tfile.Tag.FirstAlbumArtist != null)
             {
                 MusicLabel.Text = tfile.Tag.Title;
@@ -72,7 +74,7 @@ namespace MPlay
 
         }
 
-        private void pp(object sender, RoutedEventArgs e)
+        private void pp(object sender, RoutedEventArgs e) // Паузаааааа...
         {
             if (IsPause == false)
             {
